@@ -11,7 +11,7 @@ No login. No install. Just open and write.
 
 <br>
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Open%20Inkdown-6cb6ff?style=flat-square)](https://danielChifamba.github.io/inkdown)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Open%20Inkdown-6cb6ff?style=flat-square)](https://danielchifamba.github.io/inkdown)
 [![License](https://img.shields.io/badge/license-MIT-57ab5a?style=flat-square)](./LICENSE)
 [![Made with HTML](https://img.shields.io/badge/built%20with-HTML%20%2B%20JS-f69d50?style=flat-square)](#)
 [![Zero deps](https://img.shields.io/badge/zero-build%20tools-b083f0?style=flat-square)](#)
@@ -52,7 +52,7 @@ Hosted on GitHub Pages. No server. No backend. No data collected.
 
 ### Option 1 — Use it online (recommended)
 
-👉 **[Open Inkdown on GitHub Pages](https://danielChifamba.github.io/inkdown)**
+👉 **[Open Inkdown on GitHub Pages](https://danielchifamba.github.io/inkdown)**
 
 No install needed.
 
@@ -154,6 +154,6 @@ MIT — free to use, modify, and distribute. See [LICENSE](./LICENSE).
 
 <div align="center">
 
-Made with ♥ &nbsp;·&nbsp; [Open Inkdown →](https://danielChifamba.github.io/inkdown)
+Made with ♥ &nbsp;·&nbsp; [Open Inkdown →](https://danielchifamba.github.io/inkdown)
 
 </div>
