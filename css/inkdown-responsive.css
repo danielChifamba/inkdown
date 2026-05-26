@@ -1,0 +1,243 @@
+/* ── BREAKPOINTS
+   --mobile  : max-width  600px
+   --tablet  : max-width  900px
+   --desktop : min-width  901px
+   ============================================================ */
+
+/* ── TABLET (600px – 900px) ─────────────────────────────────── */
+@media (max-width: 900px) {
+
+  /* shrink brand bar slightly */
+  #brand-bar {
+    padding: 0 12px;
+    gap: 8px;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  #brand-bar::-webkit-scrollbar { display: none; }
+
+  /* hide tagline, keep logo icon + name */
+  #logo-tagline { display: none; }
+
+  /* hide word stats to save room */
+  #word-stats { display: none; }
+
+  /* hide Export HTML button label — icon only */
+  #btn-copy-html span.label { display: none; }
+
+  /* tighter toolbar */
+  #toolbar { padding: 0 8px; gap: 2px; }
+  .tbtn-tool { padding: 4px 6px; font-size: 10.5px; }
+  .tool-label { display: none; }   /* hide group labels */
+  .tool-sep { margin: 0 3px; }
+
+  /* force single-pane layout: hide divider always */
+  #divider { display: none !important; }
+
+  /* editor pane takes full width when visible */
+  #editor-pane {
+    width: 100% !important;
+    border-right: none;
+  }
+
+  /* preview pane takes full width when visible */
+  #preview-pane { width: 100% !important; }
+
+  /* split mode on tablet = editor on top, preview below */
+  #panes.tablet-split {
+    flex-direction: column;
+  }
+  #panes.tablet-split #editor-pane {
+    height: 50%;
+    width: 100% !important;
+    border-right: none;
+    border-bottom: 1px solid var(--border);
+  }
+  #panes.tablet-split #preview-pane {
+    height: 50%;
+    width: 100% !important;
+  }
+
+  /* looser preview padding */
+  #preview { padding: 24px 28px; }
+}
+
+
+/* ── MOBILE (≤ 600px) ───────────────────────────────────────── */
+@media (max-width: 600px) {
+
+  /* ---- Brand bar ---- */
+  #brand-bar {
+    height: 48px;
+    padding: 0 10px;
+    gap: 6px;
+  }
+
+  /* hide Save + Open text, keep as icon-only buttons */
+  #btn-open .btn-label,
+  #btn-save .btn-label { display: none; }
+
+  /* smaller logo icon */
+  #logo-icon { width: 26px; height: 26px; border-radius: 6px; }
+  #logo-name { font-size: 13px; }
+
+  /* hide filename chip — too cramped */
+  #filename-chip { display: none; }
+
+  /* hide the bar separators */
+  .bar-sep { display: none; }
+
+  /* hide the view-tabs from brand bar — we use bottom nav instead */
+  #view-tabs { display: none; }
+
+  /* hide Export HTML on tiny screens */
+  #btn-copy-html { display: none; }
+
+  /* ---- Toolbar ---- */
+  #toolbar {
+    height: 38px;
+    padding: 0 6px;
+    gap: 1px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+  }
+  .tbtn-tool {
+    padding: 5px 7px;
+    font-size: 11px;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    min-height: 28px;         /* touch target */
+  }
+  .tool-label { display: none; }
+  .tool-sep { margin: 0 2px; }
+
+  /* ---- Panes ---- */
+  #editor-pane {
+    width: 100% !important;
+    border-right: none;
+  }
+
+  /* tighter editor padding, narrower line-num gutter */
+  #line-nums {
+    width: 30px;
+    padding-right: 4px;
+    font-size: 11px;
+  }
+  #editor {
+    padding: 16px 12px 16px 38px;
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  /* ---- Preview ---- */
+  #preview { padding: 20px 16px; }
+  #md-out { font-size: 15px; line-height: 1.75; }
+  #md-out h1 { font-size: 1.6em; }
+  #md-out h2 { font-size: 1.3em; }
+  #md-out h3 { font-size: 1.1em; }
+  #md-out pre { padding: 12px 14px; overflow-x: auto; }
+  #md-out table { font-size: 0.82em; }
+  #md-out th, #md-out td { padding: 6px 8px; }
+
+  /* ---- Modals ---- */
+  #modal, #link-modal,
+  [id$="-modal"] > div,
+  #modal-bg > div,
+  #link-modal-bg > div,
+  #img-modal-bg > div,
+  #badge-modal-bg > div {
+    width: 94vw !important;
+    padding: 18px 16px !important;
+    margin: 0 auto;
+  }
+
+  /* ---- Toast ---- */
+  #toast {
+    bottom: 72px;          /* above mobile nav bar */
+    right: 12px;
+    left: 12px;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* ---- Bottom Nav ---- */
+  #mobile-nav {
+    display: flex !important;  /* shown only on mobile */
+  }
+}
+
+
+/* ── MOBILE BOTTOM NAVIGATION BAR ───────────────────────────── */
+/* Hidden by default; JS + media query enable it on mobile */
+#mobile-nav {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  height: 52px;
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  z-index: 500;
+  align-items: stretch;
+}
+
+.mnav-btn {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  background: transparent;
+  border: none;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: .04em;
+  cursor: pointer;
+  transition: color .15s, background .15s;
+  border-top: 2px solid transparent;
+  padding-bottom: 4px;  /* account for mobile safe area */
+}
+.mnav-btn svg { flex-shrink: 0; }
+.mnav-btn.active {
+  color: var(--accent);
+  border-top-color: var(--accent);
+  background: rgba(108,182,255,.06);
+}
+.mnav-btn:active { background: rgba(108,182,255,.1); }
+
+/* push app content up so bottom nav doesn't overlap */
+@media (max-width: 600px) {
+  #app { padding-bottom: 52px; }
+}
+
+/* ── TOUCH: larger hit targets ──────────────────────────────── */
+@media (pointer: coarse) {
+  .tbtn       { min-height: 36px; padding: 6px 12px; }
+  .tbtn-tool  { min-height: 32px; }
+  .vtab       { min-height: 30px; padding: 6px 13px; }
+  .modal-btn  { min-height: 36px; padding: 8px 16px; }
+}
+
+/* ── LANDSCAPE PHONE (short viewport) ──────────────────────── */
+@media (max-width: 900px) and (max-height: 500px) {
+  #brand-bar  { height: 40px; }
+  #toolbar    { height: 34px; }
+  .tbtn-tool  { padding: 3px 6px; }
+  #pane-hdr   { height: 28px; }
+  #preview    { padding: 14px 18px; }
+  #editor     { padding: 12px 10px 12px 36px; font-size: 12px; }
+}
+
+/* ── SAFE AREA (iPhone notch/home indicator) ────────────────── */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  #mobile-nav {
+    padding-bottom: env(safe-area-inset-bottom);
+    height: calc(52px + env(safe-area-inset-bottom));
+  }
+  @media (max-width: 600px) {
+    #app { padding-bottom: calc(52px + env(safe-area-inset-bottom)); }
+    #toast { bottom: calc(68px + env(safe-area-inset-bottom)); }
+  }
+}
